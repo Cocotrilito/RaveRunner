@@ -1,3 +1,14 @@
 [gd_scene format=3 uid="uid://bj80rs4m23o6f"]
 
-[node name="Node2D" type="Node2D" unique_id=919029317]
+[ext_resource type="Script" uid="uid://sw3t7frdemmm" path="res://scenes/enemy.gd" id="1_6e84v"]
+
+[node name="Enemy" type="Area2D" unique_id=2039065819]
+script = ExtResource("1_6e84v")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=275594029]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=114981375]
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1969896454]
+wait_time = 2.0
+autostart = true
