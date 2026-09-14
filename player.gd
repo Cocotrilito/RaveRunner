@@ -1,18 +1,24 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 700.0
 const GRAVITY = 1200.0
 var gravity_direction = 1
 const FLIP_IMPULSE = 700.0
 
-
-
+func _shake_camara():
+	var cam = $Camera2D
+	var tween = create_tween()
+	tween.tween_property(cam, "offset", Vector2(randf_range(-5,5), randf_range(-5,5)), 0.03)
+	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)
+	
 func _on_flip():
+	_shake_camara()
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(0.7, 1.3), 0.05)
 	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
 
 func _on_land():
+	_shake_camara()
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(1.3, 0.7), 0.05)
 	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
