@@ -4,21 +4,26 @@ const SPEED = 700.0
 const GRAVITY = 1200.0
 var gravity_direction = 1
 const FLIP_IMPULSE = 700.0
+var shake_tween: Tween
 
-func _shake_camara():
+
+func _shake_camera():
+	print("shakyshakyshaky")
 	var cam = $Camera2D
-	var tween = create_tween()
-	tween.tween_property(cam, "offset", Vector2(randf_range(-5,5), randf_range(-5,5)), 0.03)
-	tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)
+	if shake_tween:
+		shake_tween.kill()
+	shake_tween = create_tween()
+	shake_tween.tween_property(cam, "offset", Vector2(randf_range(-60,60), randf_range(-60,60)), 0.03)
+	shake_tween.tween_property(cam, "offset", Vector2.ZERO, 0.05)
 	
 func _on_flip():
-	_shake_camara()
+	_shake_camera()
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(0.7, 1.3), 0.05)
 	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
 
 func _on_land():
-	_shake_camara()
+	_shake_camera()
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(1.3, 0.7), 0.05)
 	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
