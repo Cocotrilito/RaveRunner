@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cxwe1c0hnqoo"]
 
 [ext_resource type="Script" uid="uid://c0eon7g0vcb6p" path="res://player.gd" id="1_g2els"]
-[ext_resource type="Texture2D" uid="uid://dpu0vx1qaseuj" path="res://icon.svg" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://u7o0tgsxe4oq" path="res://sprites/discoswaper.png" id="2_g2els"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 78.160095
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dqkch"]
+size = Vector2(127, 131)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
 size = Vector2(208, 189)
@@ -13,10 +13,14 @@ size = Vector2(208, 189)
 script = ExtResource("1_g2els")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1401875450]
-texture = ExtResource("2_qhqgy")
+texture_filter = 1
+position = Vector2(0.5000038, -0.5000019)
+scale = Vector2(7.9375005, 8.1875)
+texture = ExtResource("2_g2els")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145396078]
-shape = SubResource("CircleShape2D_g2els")
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_dqkch")
 
 [node name="ParryZone" type="Area2D" parent="." unique_id=1364782452]
 

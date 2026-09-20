@@ -5,7 +5,10 @@ const GRAVITY = 1200.0
 var gravity_direction = 1
 const FLIP_IMPULSE = 700.0
 var shake_tween: Tween
+var base_scale: Vector2
 
+func _ready():
+	base_scale = $Sprite2D.scale
 
 func _shake_camera():
 	print("shakyshakyshaky")
@@ -19,14 +22,14 @@ func _shake_camera():
 func _on_flip():
 	_shake_camera()
 	var tween = create_tween()
-	tween.tween_property($Sprite2D, "scale", Vector2(0.7, 1.3), 0.05)
-	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
+	tween.tween_property($Sprite2D, "scale", base_scale * Vector2(0.7, 1.3), 0.05)
+	tween.tween_property($Sprite2D, "scale", base_scale, 0.1)
 
 func _on_land():
 	_shake_camera()
 	var tween = create_tween()
-	tween.tween_property($Sprite2D, "scale", Vector2(1.3, 0.7), 0.05)
-	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
+	tween.tween_property($Sprite2D, "scale", base_scale * Vector2(1.3, 0.7), 0.5)
+	tween.tween_property($Sprite2D, "scale", base_scale, 0.1)
 	
 
 func _physics_process(delta):
@@ -64,3 +67,7 @@ func _on_parry_zone_area_entered(area):
 		if area.has_method("do_parry") and Input.is_action_pressed("parry"):
 			area.do_parry()
 			print("EXITOSO")
+
+
+func _on_audio_stream_player_finished() -> void:
+	pass # Replace with function body.

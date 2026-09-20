@@ -1,9 +1,12 @@
 [gd_scene format=3 uid="uid://dx4j0064lxusg"]
 
 [ext_resource type="PackedScene" uid="uid://cxwe1c0hnqoo" path="res://scenes/player.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://dvyagsipm0pad" path="res://scenes/main.gd" id="1_tefeu"]
 [ext_resource type="Texture2D" uid="uid://dpu0vx1qaseuj" path="res://icon.svg" id="2_0wfyh"]
 [ext_resource type="Script" uid="uid://dakesup36v8l6" path="res://scenes/area_2d.gd" id="3_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://bj80rs4m23o6f" path="res://scenes/enemy.tscn" id="3_sugp2"]
+[ext_resource type="Script" uid="uid://b32o4xcsu8a3c" path="res://scenes/audio_stream_player.gd" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://b7kae85x25dpb" path="res://sprites/Hardtechno #saralandry No Copyright or author rights.mp3" id="6_o6xl0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0wfyh"]
 
@@ -12,7 +15,11 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
 size = Vector2(572, 688)
 
+[sub_resource type="SystemFont" id="SystemFont_jyhfs"]
+font_names = PackedStringArray("Impact")
+
 [node name="Node" type="Node" unique_id=1932085317]
+script = ExtResource("1_tefeu")
 
 [node name="Player" parent="." unique_id=846697681 instance=ExtResource("1_o5qli")]
 position = Vector2(55, 541)
@@ -29,7 +36,7 @@ shape = SubResource("WorldBoundaryShape2D_0wfyh")
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D2" unique_id=191263649]
 offset_left = -6386.0
 offset_top = -1230.0
-offset_right = 30765.0
+offset_right = 31506.0
 offset_bottom = 10.0
 color = Color(0, 0, 0, 1)
 
@@ -42,18 +49,18 @@ shape = SubResource("WorldBoundaryShape2D_sugp2")
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D" unique_id=1166682013]
 offset_left = -6376.0
 offset_top = 692.0
-offset_right = 30737.0
+offset_right = 32883.0
 offset_bottom = 3289.0
 color = Color(0, 0, 0, 1)
 
 [node name="Enemy" parent="." unique_id=2039065819 instance=ExtResource("3_sugp2")]
-position = Vector2(3686, 545)
+position = Vector2(3697, 622)
 
 [node name="Enemy2" parent="." unique_id=239325212 instance=ExtResource("3_sugp2")]
-position = Vector2(5954, 65)
+position = Vector2(3692, 76)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2046186658]
-position = Vector2(31299, 336)
+position = Vector2(15950, 355)
 script = ExtResource("3_jyhfs")
 
 [node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=69127472]
@@ -63,4 +70,71 @@ texture = ExtResource("2_0wfyh")
 position = Vector2(-276, 6)
 shape = SubResource("RectangleShape2D_sugp2")
 
+[node name="Enemy4" parent="." unique_id=2029538993 instance=ExtResource("3_sugp2")]
+position = Vector2(9837, 80)
+
+[node name="Enemy5" parent="." unique_id=1894517140 instance=ExtResource("3_sugp2")]
+position = Vector2(12297, 108)
+
+[node name="Enemy14" parent="." unique_id=1405284517 instance=ExtResource("3_sugp2")]
+position = Vector2(11645, 614)
+
+[node name="Enemy15" parent="." unique_id=1491073406 instance=ExtResource("3_sugp2")]
+position = Vector2(7014, 605)
+
+[node name="Enemy16" parent="." unique_id=1148430516 instance=ExtResource("3_sugp2")]
+position = Vector2(15082, 594)
+
+[node name="Enemy17" parent="." unique_id=1076986145 instance=ExtResource("3_sugp2")]
+position = Vector2(13565, 581)
+
+[node name="Enemy18" parent="." unique_id=2008198980 instance=ExtResource("3_sugp2")]
+position = Vector2(11239, 577)
+
+[node name="Enemy19" parent="." unique_id=1855863223 instance=ExtResource("3_sugp2")]
+position = Vector2(9118, 565)
+
+[node name="Enemy6" parent="." unique_id=2125232282 instance=ExtResource("3_sugp2")]
+position = Vector2(11106, 630)
+
+[node name="Enemy8" parent="." unique_id=1964291081 instance=ExtResource("3_sugp2")]
+position = Vector2(6475, 621)
+
+[node name="Enemy7" parent="." unique_id=2055835797 instance=ExtResource("3_sugp2")]
+position = Vector2(14543, 610)
+
+[node name="Enemy11" parent="." unique_id=892708781 instance=ExtResource("3_sugp2")]
+position = Vector2(4958, 608)
+
+[node name="Enemy12" parent="." unique_id=683178598 instance=ExtResource("3_sugp2")]
+position = Vector2(13026, 597)
+
+[node name="Enemy3" parent="." unique_id=658908156 instance=ExtResource("3_sugp2")]
+position = Vector2(7792, 83)
+
+[node name="Enemy9" parent="." unique_id=1294392348 instance=ExtResource("3_sugp2")]
+position = Vector2(6275, 70)
+
+[node name="Enemy13" parent="." unique_id=556672823 instance=ExtResource("3_sugp2")]
+position = Vector2(10700, 593)
+
+[node name="Enemy10" parent="." unique_id=897876635 instance=ExtResource("3_sugp2")]
+position = Vector2(8579, 581)
+
+[node name="Label" type="Label" parent="." unique_id=1590923652]
+offset_left = 1353.0
+offset_top = 214.0
+offset_right = 1884.0
+offset_bottom = 419.0
+theme_override_fonts/font = SubResource("SystemFont_jyhfs")
+theme_override_font_sizes/font_size = 92
+text = "PRESS W OR S to jump between floors
+
+PRESS E to parry"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=402255976]
+stream = ExtResource("6_o6xl0")
+script = ExtResource("5_tbgi4")
+
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="finished" from="AudioStreamPlayer" to="AudioStreamPlayer" method="_on_finished"]

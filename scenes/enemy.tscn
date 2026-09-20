@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bj80rs4m23o6f"]
 
 [ext_resource type="Script" uid="uid://sw3t7frdemmm" path="res://scenes/enemy.gd" id="1_md0e3"]
-[ext_resource type="Texture2D" uid="uid://dpu0vx1qaseuj" path="res://icon.svg" id="2_4ra3w"]
+[ext_resource type="Texture2D" uid="uid://6gti8evjct5v" path="res://sprites/forgiveme 2.png" id="2_md0e3"]
+[ext_resource type="Texture2D" uid="uid://sksg7wcfag46" path="res://sprites/forgive.png" id="3_4ra3w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
 radius = 72.99315
@@ -9,12 +10,27 @@ radius = 72.99315
 [node name="Enemy" type="Area2D" unique_id=2039065819]
 script = ExtResource("1_md0e3")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=275594029]
-texture = ExtResource("2_4ra3w")
+[node name="idle" type="Sprite2D" parent="." unique_id=275594029]
+texture_filter = 1
+position = Vector2(0.50000525, 0.4999962)
+scale = Vector2(9.562501, 8.6875)
+texture = ExtResource("2_md0e3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=114981375]
 shape = SubResource("CircleShape2D_5uy6h")
 
 [node name="AttackTimer" type="Timer" parent="." unique_id=1969896454]
 wait_time = 2.0
-autostart = true
+
+[node name="Attack" type="Sprite2D" parent="." unique_id=1840824654]
+texture_filter = 1
+position = Vector2(0.7500038, 0.5)
+scale = Vector2(7.90625, 9.062499)
+texture = ExtResource("3_4ra3w")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=590497839]
+position = Vector2(-6, 189)
+rect = Rect2(-2091, -435, 2185, 518)
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

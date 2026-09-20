@@ -1,5 +1,11 @@
 extends Area2D
 
+
+
+@onready var attack: Sprite2D = $Attack
+@onready var idle: Sprite2D = $idle
+
+
 const PROJECTILE =  preload("res://scenes/projectile.tscn")
 
 func _shoot():
@@ -13,13 +19,23 @@ func stop_attacking():
 	$AttackTimer.stop()
 	
 func _on_attack():
-	$Sprite2D.modulate = Color.RED
-	# $AnimatedTelegraph.play("telegraph") LUEGO
+	idle.visible = false
+	attack.visible = true
 	await get_tree().create_timer(0.4).timeout
-	$Sprite2D.modulate = Color.WHITE
+	attack.visible = false
+	idle.visible = true
 	_shoot()
+	
+	
 
 func _ready():
 	add_to_group("enemy")
 	$AttackTimer.timeout.connect(_on_attack)
 	
+
+
+func _on_visible_on_screen_notifier_2d_screen_entered():
+	$AttackTimer.start()
+
+func _on_visible_on_screen_notifier_2d_screen_exited():
+	$AttackTimer.stop()

@@ -1,17 +1,20 @@
 [gd_scene format=3 uid="uid://8d8qt5kbd0nu"]
 
 [ext_resource type="Script" uid="uid://dqhsifrhq4hf4" path="res://scenes/projectile.gd" id="1_c8fcr"]
-[ext_resource type="Texture2D" uid="uid://dpu0vx1qaseuj" path="res://icon.svg" id="2_q3m7n"]
+[ext_resource type="Texture2D" uid="uid://dj1okh0pg0sa8" path="res://sprites/fireball.png" id="2_q3m7n"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_softn"]
-radius = 60.0
-height = 158.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_softn"]
+size = Vector2(107, 62)
 
 [node name="Projectile" type="Area2D" unique_id=1273899895]
 script = ExtResource("1_c8fcr")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2028482400]
+texture_filter = 1
+position = Vector2(1, -1)
+scale = Vector2(7.625, 4.5)
 texture = ExtResource("2_q3m7n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=754513471]
-shape = SubResource("CapsuleShape2D_softn")
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_softn")
