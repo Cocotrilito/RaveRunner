@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bj80rs4m23o6f"]
+
+[ext_resource type="Script" uid="uid://sw3t7frdemmm" path="res://scenes/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://dpu0vx1qaseuj" path="res://icon.svg" id="2_4ra3w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5uy6h"]
+radius = 72.99315
+
+[node name="Enemy" type="Area2D" unique_id=2039065819]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=275594029]
+texture = ExtResource("2_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=114981375]
+shape = SubResource("CircleShape2D_5uy6h")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1969896454]
+wait_time = 2.0
+autostart = true

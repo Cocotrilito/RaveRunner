@@ -27,6 +27,8 @@ func _on_land():
 	var tween = create_tween()
 	tween.tween_property($Sprite2D, "scale", Vector2(1.3, 0.7), 0.05)
 	tween.tween_property($Sprite2D, "scale", Vector2(1,1), 0.1)
+	
+
 func _physics_process(delta):
 	
 	var was_in_air = not (is_on_floor() or is_on_ceiling())
@@ -47,4 +49,16 @@ func _physics_process(delta):
 			_on_flip()
 			gravity_direction = 1
 			velocity.y = FLIP_IMPULSE
+			
+			
 	move_and_slide()
+
+
+
+
+
+
+
+func _on_parry_zone_area_entered(body):
+		if body.has_method("do_parry") and Input.is_action_pressed("parry"):
+			body.do_parry()

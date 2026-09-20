@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cug568k6iqakx"]
+
+[ext_resource type="Script" uid="uid://bs8gu3o1nvkne" path="res://scenes/control.gd" id="1_l6cm7"]
+
+[node name="main menu" type="Node2D" unique_id=755617068]
+
+[node name="Control" type="Control" parent="." unique_id=878156063]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l6cm7")
+
+[node name="Label" type="Label" parent="Control" unique_id=961606761]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Play" type="Button" parent="Control" unique_id=1587182878]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+
+[connection signal="pressed" from="Control/Play" to="Control" method="_on_play_pressed"]

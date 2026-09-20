@@ -7,7 +7,7 @@
 radius = 78.160095
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhqgy"]
-size = Vector2(133, 135)
+size = Vector2(208, 189)
 
 [node name="Player" type="CharacterBody2D" unique_id=846697681]
 script = ExtResource("1_g2els")
@@ -21,5 +21,7 @@ shape = SubResource("CircleShape2D_g2els")
 [node name="ParryZone" type="Area2D" parent="." unique_id=1364782452]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ParryZone" unique_id=17828906]
-position = Vector2(-1.5, 0.5)
 shape = SubResource("RectangleShape2D_qhqgy")
+
+[connection signal="area_entered" from="ParryZone" to="." method="_on_parry_zone_area_entered"]
+[connection signal="body_entered" from="ParryZone" to="." method="_on_parry_zone_body_entered"]

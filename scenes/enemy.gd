@@ -9,8 +9,10 @@ func _shoot():
 	proj.direction = Vector2.LEFT
 
 func _on_attack():
-	$AnimatedTelegraph.play("telegraph")
+	$Sprite2D.modulate = Color.RED
+	# $AnimatedTelegraph.play("telegraph") LUEGO
 	await get_tree().create_timer(0.4).timeout
+	$Sprite2D.modulate = Color.WHITE
 	_shoot()
 
 func _ready():
