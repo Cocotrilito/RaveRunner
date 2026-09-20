@@ -9,8 +9,10 @@ var base_scale: Vector2
 
 func _ready():
 	base_scale = $Sprite2D.scale
+	print(get_viewport_rect().size)
 
 func _shake_camera():
+	
 	print("shakyshakyshaky")
 	var cam = $Camera2D
 	if shake_tween:
@@ -64,9 +66,11 @@ func _physics_process(delta):
 
 func _on_parry_zone_area_entered(area):
 		print("algo entra", area.name)
+	
 		if area.has_method("do_parry") and Input.is_action_pressed("parry"):
 			area.do_parry()
 			print("EXITOSO")
+			
 
 
 func _on_audio_stream_player_finished() -> void:
