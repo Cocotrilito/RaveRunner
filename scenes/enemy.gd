@@ -7,7 +7,11 @@ func _shoot():
 	get_tree().current_scene.add_child(proj)
 	proj.global_position = global_position
 	proj.direction = Vector2.LEFT
+	proj.source_enemy = self
 
+func stop_attacking():
+	$AttackTimer.stop()
+	
 func _on_attack():
 	$Sprite2D.modulate = Color.RED
 	# $AnimatedTelegraph.play("telegraph") LUEGO
@@ -16,5 +20,6 @@ func _on_attack():
 	_shoot()
 
 func _ready():
+	add_to_group("enemy")
 	$AttackTimer.timeout.connect(_on_attack)
 	

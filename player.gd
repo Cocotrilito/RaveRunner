@@ -59,6 +59,8 @@ func _physics_process(delta):
 
 
 
-func _on_parry_zone_area_entered(body):
-		if body.has_method("do_parry") and Input.is_action_pressed("parry"):
-			body.do_parry()
+func _on_parry_zone_area_entered(area):
+		print("algo entra", area.name)
+		if area.has_method("do_parry") and Input.is_action_pressed("parry"):
+			area.do_parry()
+			print("EXITOSO")

@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cckbv2f54g8yo"]
+
+[ext_resource type="Script" uid="uid://c3er8mdng52g4" path="res://control.gd" id="1_wv5lq"]
+
+[sub_resource type="SystemFont" id="SystemFont_erk2x"]
+font_names = PackedStringArray("Impact")
+
+[sub_resource type="SystemFont" id="SystemFont_2l6cc"]
+font_names = PackedStringArray("Impact")
+
+[node name="win screen" type="Node2D" unique_id=1189406927]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=938076506]
+offset_right = 1155.0
+offset_bottom = 650.0
+color = Color(0, 0.05709608, 0.25264242, 1)
+
+[node name="Control" type="Control" parent="." unique_id=1978838538]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1151.0
+offset_bottom = 648.0
+script = ExtResource("1_wv5lq")
+
+[node name="retry" type="Button" parent="Control" unique_id=705238314]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = -105.0
+offset_right = 242.5
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_erk2x")
+theme_override_font_sizes/font_size = 27
+text = "RETRY"
+
+[node name="main menu" type="Button" parent="Control" unique_id=1590934064]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -243.5
+offset_top = 16.0
+offset_right = 245.5
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = SubResource("SystemFont_erk2x")
+theme_override_font_sizes/font_size = 27
+text = "MAIN MENU"
+
+[node name="Label" type="Label" parent="Control" unique_id=1221073283]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -204.0
+offset_right = 245.5
+offset_bottom = -104.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.105882354, 0, 1)
+theme_override_fonts/font = SubResource("SystemFont_2l6cc")
+theme_override_font_sizes/font_size = 65
+text = "Looks like you won"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Control/retry" to="Control" method="_on_retry_pressed"]
+[connection signal="pressed" from="Control/main menu" to="Control" method="_on_main_menu_pressed"]
